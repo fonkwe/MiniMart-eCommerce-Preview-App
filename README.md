@@ -47,3 +47,11 @@ In the output, you'll find options to open the app in a
 
 ## You can start developing by editing the files inside the **app** directory.
 
+## Screenshot of the compiled App
+![cartpage](https://github.com/user-attachments/assets/22d190b7-9ccb-4e8c-a8cf-b8f17a6a98db)
+![product added to favorite](https://github.com/user-attachments/assets/e30b42fa-604a-483b-8843-e541a21fe93e)
+![product detail1](https://github.com/user-attachments/assets/b724a2f0-8958-4f21-b144-3ba3ba4a05e3)
+![product detail](https://github.com/user-attachments/assets/ec6de943-783d-4129-b777-af2a77abdeb9)
+![home page](https://github.com/user-attachments/assets/5b1884e5-f932-435d-8eba-964494bfcf31)
+
+
