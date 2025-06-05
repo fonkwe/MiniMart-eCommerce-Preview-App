@@ -1,6 +1,6 @@
 # React Native Expo App 👋
 
-This is a mobile application built using **React Native** and **Expo**. It allows users to browse products, view product details, manage a shopping cart that is adding, reducing the quantity of product on your cart and removing the product from  your cart.
+This is a mobile application built using **React Native** and **Expo**. It allows users to browse products, view product details, manage a shopping cart that is adding, reducing the quantity of product on your cart and removing the product from  your cart. you can mark a product as favourite by clicking on the love icon the product detail page and it will be added to the list of favorite product on the favorite page.
 
 ---
 
