@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   cartList: { flex: 1 },
   image: {
     width: 102,
-    height: 102,
+    height: 106,
     resizeMode: 'contain',
     marginRight: 12,
   },

@@ -46,17 +46,15 @@ const cartReducer = (state, action) => {
               cart: state.cart.filter(item => item.id !== action.payload),
             };
       
-          case 'ADD_TO_FAVORITES':
-            if (state.favorites.some(item => item.id === action.payload.id)) {
-              return state; // Item already in favorites
+            case 'TOGGLE_FAVORITE': {
+              const isFavorite = state.favorites.some(item => item.id === action.payload.id);
+              return {
+                ...state,
+                favorites: isFavorite
+                  ? state.favorites.filter(item => item.id !== action.payload.id)
+                  : [...state.favorites, action.payload],
+              };
             }
-            return { ...state, favorites: [...state.favorites, action.payload] };
-      
-          case 'REMOVE_FROM_FAVORITES':
-            return {
-              ...state,
-              favorites: state.favorites.filter(item => item.id !== action.payload.id),
-            };
 
     default:
       return state;
@@ -66,10 +64,11 @@ const cartReducer = (state, action) => {
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState);
   return (
-    <CartContext.Provider value={{ cart: state.cart, dispatch }}>
+    <CartContext.Provider value={{ cart: state.cart, favorites: state.favorites, dispatch }}>
       {children}
     </CartContext.Provider>
   );
 };
 
 export const useCart = () => useContext(CartContext);
+

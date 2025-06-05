@@ -19,20 +19,19 @@ const ProductDetailScreen = () => {
   const { id } = useLocalSearchParams();
   const navigation = useNavigation(); 
   const product = products.find(p => p.id === Number(id));
-  const { state, dispatch } = useCart();
+  const { cart, favorites, dispatch } = useCart(); 
 
   const [showToast, setShowToast] = useState(false);
 
 
   if (!product) return <Text>Product not found</Text>;
 
-  const isFavorite = state?.favorites?.some(p => p.id === product.id);
-
+  const isFavorite = favorites?.some(p => p.id === product.id); // Use favorites from context
 
   const handleAdd = () => {
     dispatch({ type: 'ADD', payload: { ...product, quantity: 1 } });
     setShowToast(true);
-    setTimeout(() => setShowToast(false), 10000);
+    setTimeout(() => setShowToast(false), 3000); // Shortened toast duration
   };
 
   const toggleFavorite = () => {
@@ -95,6 +94,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
     backgroundColor: '#ffffff',
+    borderTopWidth: 0.5,
+    borderColor: '#ddd',
+    paddingTop: 5,
   },
   imageContainer: {
     position: 'relative',
@@ -152,7 +154,8 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 17,
     fontWeight: '400',
-    fontFamily: 'IBM Plex Mono'  },
+    fontFamily: 'IBM Plex Mono' ,
+   },
   price: {
     fontSize: 33,
     fontWeight: 'bold',

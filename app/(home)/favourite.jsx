@@ -3,12 +3,14 @@ import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import { useCart } from '../../redux/store';
 
 const Favorites = () => {
-  const { state } = useCart();
-  
-  const favorites = state?.favorites || []; // Safely access favorites
+  const { favorites } = useCart(); // Destructure favorites directly
 
-  if (favorites.length === 0) {
-    return <Text style={styles.empty}>No favorites yet.</Text>;
+  if (!favorites || favorites.length === 0) {
+    return (
+      <View style={styles.emptyContainer}>
+        <Text style={styles.emptyText}>No favorites yet.</Text>
+      </View>
+    );
   }
 
   return (
@@ -19,7 +21,10 @@ const Favorites = () => {
       renderItem={({ item }) => (
         <View style={styles.card}>
           <Image source={item.image} style={styles.image} />
-          <Text>{item.name}</Text>
+          <View style={styles.details}>
+            <Text style={styles.name}>{item.name}</Text>
+            <Text style={styles.price}>${Number(item.price).toFixed(2)}</Text>
+          </View>
         </View>
       )}
     />
@@ -27,10 +32,47 @@ const Favorites = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { padding: 20 },
-  empty: { padding: 20, textAlign: 'center' },
-  card: { marginBottom: 20, flexDirection: 'row', alignItems: 'center' },
-  image: { width: 60, height: 60, marginRight: 10 },
+  container: {
+    padding: 20,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 40,
+  },
+  emptyText: {
+    fontSize: 16,
+    color: '#999',
+    fontFamily: 'IBM Plex Mono',
+  },
+  card: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+    backgroundColor: '#f9f9f9',
+    padding: 12,
+    borderRadius: 8,
+  },
+  image: {
+    width: 60,
+    height: 60,
+    marginRight: 15,
+    borderRadius: 4,
+  },
+  details: {
+    flex: 1,
+  },
+  name: {
+    fontSize: 16,
+    fontFamily: 'IBM Plex Mono',
+    marginBottom: 4,
+  },
+  price: {
+    fontSize: 14,
+    color: '#555',
+    fontFamily: 'IBM Plex Mono',
+  },
 });
 
 export default Favorites;
