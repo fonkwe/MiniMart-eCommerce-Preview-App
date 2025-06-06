@@ -62,7 +62,8 @@ export default function App() {
     screenOptions={{
       headerShown: false, 
     }}
-  >
+  > 
+      <Stack.Screen name="index" options={{ headerShown: false }} />
      <Stack.Screen name="(home)" options={{ headerShown: false }} />
      <Stack.Screen name="productDetailScreen" options={{ headerShown: false }} />
   </Stack>
