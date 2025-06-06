@@ -12,7 +12,7 @@ const HomeScreen = () => {
       {/* Search Bar */}
       <View style={styles.searchContainer}>
         <Ionicons name="search" size={20} color="#CBD5E1" />
-        <TextInput placeholder="Search..." style={styles.searchInput} placeholderTextColor="#6B7280" />
+        <TextInput placeholder="Search..." style={styles.searchInput} placeholderTextColor="#B0B0B0" />
       </View>
 
       {/* Category & Title */}
@@ -46,12 +46,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 10, borderRadius: 3, paddingHorizontal: 8, paddingVertical: 8,  borderWidth: 0.5,  borderColor: '#E2E8F0',
   },
   searchInput: {
-    marginLeft: 10,
-    flex: 1,
     fontFamily: 'IBM Plex Mono',
     fontSize: 14, 
     fontWeight: '400',
-    color: '#000000',
+    height: 40,
+    color: '#000',
   },
     categoryContainer: {
     flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10, marginTop: 20,

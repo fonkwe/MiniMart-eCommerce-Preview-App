@@ -13,6 +13,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { products } from '../product';
 import { useCart } from '../redux/store';
 
+
 const { width: screenWidth } = Dimensions.get('window');
 
 const ProductDetailScreen = () => {
@@ -51,6 +52,9 @@ const ProductDetailScreen = () => {
        {/* Toast Message */}
        {showToast && (
         <View style={styles.toast}>
+           <View style={styles.icon}>
+             <Icon name="check" size={10} color="#22C55E" />
+            </View>
           <Text style={styles.toastText}>Item has been added to cart</Text>
           <TouchableOpacity onPress={() => setShowToast(false)}>
             <Text style={styles.toastClose}>✕</Text>
@@ -110,6 +114,12 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     elevation: 3,
   },
+  icon: {
+    marginRight: 8,
+    borderRadius: 20,
+    borderColor: '#22C55E',
+    backgroundColor: '#E0F2F1',
+  },
   toast: {
     position: 'absolute',
     top: 10,
@@ -123,6 +133,24 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     zIndex: 1000,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    marginHorizontal: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
+    borderLeftWidth: 4,
+    borderLeftColor: '#22C55E',
+    position: 'absolute',
+    top: 50,
+    alignSelf: 'center',
+    zIndex: 999,
   },
   toastText: {
     fontSize: 14,
