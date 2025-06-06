@@ -8,9 +8,9 @@ export default function NotFoundScreen() {
     <>
       <Stack.Screen options={{ title: 'Oops!' }} />
       <View style={styles.container}>
-        <Text style={styles.title}>This screen does not exist.</Text>
-        <Link href="/+not-found" style={styles.link}>
-          <Text>Go to home screen!</Text>
+        <Text style={styles.title}>Welcome to MiniMart – eCommerce Preview App</Text>
+        <Link href="/(home)/home" style={styles.link}>
+          <Text>Click here to navigate to home screen!</Text>
         </Link>
       </View>
     </>
